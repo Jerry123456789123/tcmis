@@ -17,7 +17,8 @@ def course():
     return "<h1>資訊管理導論</h1>"
 @app.route("/today")
 def today():
-    now = datetime.now()
+    tz = timezone(timedelta(hours=+8))
+    now = datetime.now(tz)
     return render_template("today.html", datetime = str(now))
 @app.route("/homework")
 def homework():
